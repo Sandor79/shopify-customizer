@@ -1,0 +1,12 @@
+{
+  "headerText": "Header",
+  "bodyText": "Body",
+  "footerText": "Footer",
+  "backgroundColor": "#000000",
+  "headerTextColor": "#000000",
+  "bodyTextColor": "#000000",
+  "footerTextColor": "#000000",
+  "headerTextFont": "Helvetica Neue, Helvetica, Arial, sans-serif",
+  "bodyTextFont": "Helvetica Neue, Helvetica, Arial, sans-serif",
+  "footerTextFont": "Helvetica Neue, Helvetica, Arial, sans-serif"
+}
