@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "@shopify/polaris";
 import {
   Layout,
   EmptyState,
@@ -12,7 +11,6 @@ import {
   ActionList,
   ButtonGroup,
   Button,
-  Header,
   Form,
   TextField,
   TextContainer,
@@ -20,6 +18,7 @@ import {
   Toast,
   Modal,
   Icon,
+  Text,
 } from "@shopify/polaris";
 
 import {
@@ -447,7 +446,11 @@ export default function App() {
                 <ActionList
                   items={[
                     {
-                      content: <Header>{selectedSetting}</Header>,
+                      content: (
+                        <Text variant="headingXl" as="h4">
+                          {selectedSetting}
+                        </Text>
+                      ),
                       prefix: (
                         <Icon
                           source={MobileBackArrowMajor}
