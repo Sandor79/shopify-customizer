@@ -19,7 +19,7 @@ import {
   Select,
   Toast,
   Modal,
-  Icon
+  Icon,
 } from "@shopify/polaris";
 
 import {
@@ -31,14 +31,14 @@ import {
   ColorsMajor,
   TypeMajor,
   DesktopMajor,
-  ViewportWideMajor
+  ViewportWideMajor,
 } from "@shopify/polaris-icons";
 
 import {
   useField,
   useForm,
   notEmpty,
-  submitSuccess
+  submitSuccess,
 } from "@shopify/react-form";
 import styled from "styled-components";
 import defaults from "./defaults";
@@ -72,9 +72,8 @@ export default function App() {
     />
   ) : null;
 
-  const [discardConfirmationModal, setDiscardConfirmationModal] = useState(
-    false
-  );
+  const [discardConfirmationModal, setDiscardConfirmationModal] =
+    useState(false);
   const discardConfirmationModalMarkup = discardConfirmationModal ? (
     <Modal
       open={discardConfirmationModal}
@@ -88,15 +87,15 @@ export default function App() {
           reset();
           setDiscardConfirmationModal(false);
         },
-        destructive: true
+        destructive: true,
       }}
       secondaryActions={[
         {
           content: "Continue editing",
           onAction: () => {
             setDiscardConfirmationModal(false);
-          }
-        }
+          },
+        },
       ]}
     >
       <Modal.Section>
@@ -130,7 +129,7 @@ export default function App() {
           }, 1000);
         },
         destructive: true,
-        loading: resetting
+        loading: resetting,
       }}
       secondaryActions={[
         {
@@ -138,8 +137,8 @@ export default function App() {
           onAction: () => {
             setResetToDefaultModal(false);
           },
-          disabled: resetting
-        }
+          disabled: resetting,
+        },
       ]}
     >
       <Modal.Section>
@@ -169,35 +168,35 @@ export default function App() {
     fields: {
       headerText: useField({
         value: settings.headerText,
-        validates: notEmpty("Text is required")
+        validates: notEmpty("Text is required"),
       }),
       bodyText: useField({
         value: settings.bodyText,
-        validates: notEmpty("Text is required")
+        validates: notEmpty("Text is required"),
       }),
       footerText: useField({
         value: settings.footerText,
-        validates: notEmpty("Text is required")
+        validates: notEmpty("Text is required"),
       }),
       backgroundColor: useField({
         value: settings.backgroundColor,
-        validates: notEmpty("Color is required")
+        validates: notEmpty("Color is required"),
       }),
       headerTextColor: useField({
         value: settings.headerTextColor,
-        validates: notEmpty("Color is required")
+        validates: notEmpty("Color is required"),
       }),
       bodyTextColor: useField({
         value: settings.bodyTextColor,
-        validates: notEmpty("Color is required")
+        validates: notEmpty("Color is required"),
       }),
       footerTextColor: useField({
         value: settings.footerTextColor,
-        validates: notEmpty("Color is required")
+        validates: notEmpty("Color is required"),
       }),
       headerTextFont: useField(settings.headerTextFont),
       bodyTextFont: useField(settings.bodyTextFont),
-      footerTextFont: useField(settings.footerTextFont)
+      footerTextFont: useField(settings.footerTextFont),
     },
     onSubmit: async (form) => {
       //save settings to db
@@ -208,7 +207,7 @@ export default function App() {
         setToast({ active: true, content: "Settings saved", error: false });
       }, 1000);
       return submitSuccess();
-    }
+    },
   });
 
   useEffect(() => {
@@ -243,7 +242,7 @@ export default function App() {
               position: "fixed",
               top: "45%",
               left: "50%",
-              transform: "translate(-50%, -45%)"
+              transform: "translate(-50%, -45%)",
             }}
           >
             <Spinner
@@ -276,7 +275,7 @@ export default function App() {
                       />
                     ),
                     accessibilityLabel: "Phone",
-                    panelID: "phone-view"
+                    panelID: "phone-view",
                   },
                   {
                     id: "desktop",
@@ -287,7 +286,7 @@ export default function App() {
                       />
                     ),
                     accessibilityLabel: "Desktop",
-                    panelID: "desktop-view"
+                    panelID: "desktop-view",
                   },
                   {
                     id: "fullscreen",
@@ -298,8 +297,8 @@ export default function App() {
                       />
                     ),
                     accessibilityLabel: "Fullscreen",
-                    panelID: "fullscreen-view"
-                  }
+                    panelID: "fullscreen-view",
+                  },
                 ]}
                 selected={selectedViewTab}
                 onSelect={handleViewTabChange}
@@ -342,13 +341,13 @@ export default function App() {
                       id: "sections",
                       content: "Sections",
                       accessibilityLabel: "Sections",
-                      panelID: "sections-content"
+                      panelID: "sections-content",
                     },
                     {
                       id: "settings",
                       content: "Settings",
-                      panelID: "settings-content"
-                    }
+                      panelID: "settings-content",
+                    },
                   ]}
                   selected={selectedNavigationTab}
                   onSelect={handleNavigationTabChange}
@@ -368,8 +367,8 @@ export default function App() {
                           suffix: "",
                           onAction: () => {
                             setSelectedSetting("Header");
-                          }
-                        }
+                          },
+                        },
                       ]}
                     />
                   </Card>
@@ -384,8 +383,8 @@ export default function App() {
                           suffix: "",
                           onAction: () => {
                             setSelectedSetting("Body");
-                          }
-                        }
+                          },
+                        },
                       ]}
                     />
                   </Card>
@@ -400,8 +399,8 @@ export default function App() {
                           suffix: "",
                           onAction: () => {
                             setSelectedSetting("Footer");
-                          }
-                        }
+                          },
+                        },
                       ]}
                     />
                   </Card>
@@ -421,8 +420,8 @@ export default function App() {
                           suffix: "",
                           onAction: () => {
                             setSelectedSetting("Colors");
-                          }
-                        }
+                          },
+                        },
                       ]}
                     />
                   </Card>
@@ -437,8 +436,8 @@ export default function App() {
                           suffix: "",
                           onAction: () => {
                             setSelectedSetting("Typography");
-                          }
-                        }
+                          },
+                        },
                       ]}
                     />
                   </Card>
@@ -458,8 +457,8 @@ export default function App() {
                       suffix: "",
                       onAction: () => {
                         setSelectedSetting("");
-                      }
-                    }
+                      },
+                    },
                   ]}
                 />
               )}
@@ -589,17 +588,17 @@ export default function App() {
                       options={[
                         {
                           label: "Courier New",
-                          value: "Courier New, Courier, monospace"
+                          value: "Courier New, Courier, monospace",
                         },
                         { label: "Georgia", value: "Georgia, serif" },
                         {
                           label: "Helvetica Neue",
-                          value: "Helvetica Neue, Helvetica, Arial, sans-serif"
+                          value: "Helvetica Neue, Helvetica, Arial, sans-serif",
                         },
                         {
                           label: "Times New Roman",
-                          value: "Times New Roman, Times, serif"
-                        }
+                          value: "Times New Roman, Times, serif",
+                        },
                       ]}
                       {...fields.headerTextFont}
                       required
@@ -611,17 +610,17 @@ export default function App() {
                       options={[
                         {
                           label: "Courier New",
-                          value: "Courier New, Courier, monospace"
+                          value: "Courier New, Courier, monospace",
                         },
                         { label: "Georgia", value: "Georgia, serif" },
                         {
                           label: "Helvetica Neue",
-                          value: "Helvetica Neue, Helvetica, Arial, sans-serif"
+                          value: "Helvetica Neue, Helvetica, Arial, sans-serif",
                         },
                         {
                           label: "Times New Roman",
-                          value: "Times New Roman, Times, serif"
-                        }
+                          value: "Times New Roman, Times, serif",
+                        },
                       ]}
                       {...fields.bodyTextFont}
                       required
@@ -633,17 +632,17 @@ export default function App() {
                       options={[
                         {
                           label: "Courier New",
-                          value: "Courier New, Courier, monospace"
+                          value: "Courier New, Courier, monospace",
                         },
                         { label: "Georgia", value: "Georgia, serif" },
                         {
                           label: "Helvetica Neue",
-                          value: "Helvetica Neue, Helvetica, Arial, sans-serif"
+                          value: "Helvetica Neue, Helvetica, Arial, sans-serif",
                         },
                         {
                           label: "Times New Roman",
-                          value: "Times New Roman, Times, serif"
-                        }
+                          value: "Times New Roman, Times, serif",
+                        },
                       ]}
                       {...fields.footerTextFont}
                       required
@@ -689,7 +688,7 @@ export default function App() {
           style={{
             width: previewWidth,
             height: "100%",
-            padding: "0.8rem"
+            padding: "0.8rem",
           }}
         >
           <Card>
@@ -709,7 +708,7 @@ export default function App() {
                   id="modal-header"
                   style={{
                     color: fields.headerTextColor.value,
-                    fontFamily: fields.headerTextFont.value
+                    fontFamily: fields.headerTextFont.value,
                   }}
                 >
                   {fields.headerText.value}
@@ -718,7 +717,7 @@ export default function App() {
                   id="modal-body"
                   style={{
                     color: fields.bodyTextColor.value,
-                    fontFamily: fields.bodyTextFont.value
+                    fontFamily: fields.bodyTextFont.value,
                   }}
                 >
                   {fields.bodyText.value.split("\n").map((value, index) => {
@@ -729,7 +728,7 @@ export default function App() {
                   id="modal-footer"
                   style={{
                     color: fields.footerTextColor.value,
-                    fontFamily: fields.footerTextFont.value
+                    fontFamily: fields.footerTextFont.value,
                   }}
                 >
                   {fields.footerText.value}
